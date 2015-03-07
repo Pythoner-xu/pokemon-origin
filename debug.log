@@ -38,11 +38,11 @@ LOAD LUA FILE: D:/Users/Administrator/Documents/cocos/pokemon-origin/src/main.lu
 
 [LUA-print] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
 
-[LUA-print] [INFO] # display.widthInPixels        = 480.00
+[LUA-print] [INFO] # display.widthInPixels        = 960.00
 
-[LUA-print] [INFO] # display.heightInPixels       = 320.00
+[LUA-print] [INFO] # display.heightInPixels       = 640.00
 
-[LUA-print] [INFO] # display.contentScaleFactor   = 0.50
+[LUA-print] [INFO] # display.contentScaleFactor   = 1.00
 
 [LUA-print] [INFO] # display.width                = 960.00
 
@@ -69,6 +69,4 @@ LOAD LUA FILE: D:/Users/Administrator/Documents/cocos/pokemon-origin/src/main.lu
 [LUA-print] [INFO] # display.c_bottom             = -320.00
 
 [LUA-print] [INFO] #
-
-[LUA ERROR] [string ".\app/scenes/MainScene.lua"]:16: attempt to index a nil value
 
