@@ -11,7 +11,12 @@ function MainScene:ctor()
             UILabelType = 2, text = "Hello, World", size = 64})
         :align(display.CENTER, display.cx, display.cy)
         :addTo(self)
-    mainLayer = display.newColorLayer()
+    mainLayer = display.newColorLayer(cc.c4b(255, 255, 255, 255))
+    	:setContentSize(display.width, display.height)
+    	:addTo(self)
+    uiLayer = display.newLayer()
+    	:setContentSize(display.width, display.height)
+    	:addTo(self)
 end
 
 function MainScene:onEnter()
