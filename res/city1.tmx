@@ -1,76 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="100" height="100" tilewidth="16" tileheight="16" nextobjectid="1">
- <tileset firstgid="1" name="city1" tilewidth="16" tileheight="16">
-  <image source="E:/pokemon-origin/res/city1.png" width="384" height="320"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="21" height="9" tilewidth="48" tileheight="48" nextobjectid="1">
+ <tileset firstgid="1" name="city1" tilewidth="48" tileheight="48">
+  <image source="city1.png" width="1152" height="960"/>
+  <tile id="50">
+   <objectgroup draworder="index">
+    <object id="0" x="-16" y="-7" width="75" height="65"/>
+   </objectgroup>
+  </tile>
  </tileset>
- <tileset firstgid="481" name="BlockPalette_BPR_0_1" tilewidth="16" tileheight="16">
-  <image source="E:/pokemon-origin/res/BlockPalette_BPR_0_1.png" width="128" height="1472"/>
+ <tileset firstgid="481" name="flower14bq" tilewidth="48" tileheight="48">
+  <image source="flower14bq.png" width="192" height="48"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="3" y="1" width="44" height="46"/>
+   </objectgroup>
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="485" name="BlockPalette_BPR_0_1" tilewidth="48" tileheight="48">
+  <image source="BlockPalette_BPR_0_1.png" width="384" height="4416"/>
   <terraintypes>
-   <terrain name="block" tile="-1"/>
-   <terrain name="tree" tile="-1"/>
+   <terrain name="新地形" tile="-1"/>
   </terraintypes>
-  <tile id="2" terrain="0,0,0,0"/>
-  <tile id="3" terrain="0,0,0,0"/>
-  <tile id="4" terrain="0,0,0,0"/>
-  <tile id="361" terrain="0,0,0,0"/>
-  <tile id="644" terrain="0,0,0,0"/>
-  <tile id="647" terrain="0,0,0,0"/>
-  <tile id="649" terrain="0,0,0,0"/>
-  <tile id="650" terrain="0,0,0,0"/>
-  <tile id="651" terrain="0,0,0,0"/>
-  <tile id="657" terrain="0,0,0,0"/>
-  <tile id="658" terrain="0,0,0,0"/>
-  <tile id="659" terrain="0,0,0,0"/>
-  <tile id="660" terrain="0,0,0,0"/>
-  <tile id="664" terrain="0,0,0,0"/>
-  <tile id="665" terrain="0,0,0,0"/>
-  <tile id="666" terrain="0,0,0,0"/>
-  <tile id="667" terrain="0,0,0,0"/>
-  <tile id="668" terrain="0,0,0,0"/>
-  <tile id="672" terrain="0,0,0,0"/>
-  <tile id="673" terrain="0,0,0,0"/>
-  <tile id="674" terrain="0,0,0,0"/>
-  <tile id="675" terrain="0,0,0,0"/>
-  <tile id="676" terrain="0,0,0,0"/>
-  <tile id="682" terrain="0,,0,"/>
-  <tile id="683" terrain=",0,,0"/>
-  <tile id="684" terrain="0,0,0,0"/>
-  <tile id="685" terrain="0,0,0,0"/>
-  <tile id="688" terrain="0,0,0,0"/>
-  <tile id="689" terrain="0,0,0,0"/>
-  <tile id="690" terrain="0,0,0,0"/>
-  <tile id="691" terrain="0,0,0,0"/>
-  <tile id="692" terrain="0,0,0,0"/>
-  <tile id="696" terrain="0,0,0,0"/>
-  <tile id="697" terrain="0,0,0,0"/>
-  <tile id="698" terrain="0,0,0,0"/>
-  <tile id="699" terrain="0,0,0,0"/>
-  <tile id="700" terrain="0,0,0,0"/>
-  <tile id="704" terrain="0,0,0,0"/>
-  <tile id="705" terrain="0,0,0,0"/>
-  <tile id="706" terrain="0,0,0,0"/>
-  <tile id="707" terrain="0,0,0,0"/>
-  <tile id="708" terrain="0,0,0,0"/>
-  <tile id="709" terrain="0,0,0,0"/>
-  <tile id="712" terrain="0,0,0,0"/>
-  <tile id="713" terrain="0,0,0,0"/>
-  <tile id="714" terrain="0,0,0,0"/>
-  <tile id="715" terrain="0,0,0,0"/>
-  <tile id="716" terrain="0,0,0,0"/>
-  <tile id="717" terrain="0,0,0,0"/>
-  <tile id="720" terrain="0,0,0,0"/>
-  <tile id="721" terrain="0,0,0,0"/>
-  <tile id="722" terrain="0,0,0,0"/>
-  <tile id="728" terrain="0,0,0,0"/>
+  <tile id="26" terrain="0,0,0,0"/>
+  <tile id="27" terrain="0,0,0,0"/>
+  <tile id="28" terrain="0,0,0,0"/>
+  <tile id="29" terrain="0,0,0,0"/>
  </tileset>
- <layer name="块层 1" width="100" height="100">
+ <layer name="ground" width="21" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt0ecXDnQYx2EiGaWUNqkoCe0lIUpEiaIy016aGkQlq4GsjCKyGmgaoagU7WS0tPfee3f1Jzy9eM7pOd/P+V0vfy/u+y5bpkyZDShHeTakAhtRkUpUpgobswlV2ZTNqMbmbEF1tmQrtmabMqnQtmU7tqcGNdmBWuzITuxMbeqwC7tSl92ox+7UpwEN2YM92at4Y5RMe7MP+7If+3MAB3IQjTiYxhxCE5rSjENpTgsO43BacgStaF28MUqmI2lDW47iaNpxDO3pwLEcR0c6cTwncCKd6UJXutGdHpxEz+KNUTKdzCmcymmczhmcyVmczTmcSy/O43wu4EIu4mJ6cwmXchmX06eIc5RKfbmCfvTnSq7iagZwDQMZxGCGMJRruY7ruYFhDGcENzKSUcUbo2QazRjGchPjGM8EJnIztzCJydzKFKZyG9OYzgxmMovbuYM7izdGyXQXs5nDXO7mHu7lPu7nAeYxnwUs5EEWsZglPMTDLGUZj/Bo8cYomR5jOY/zBCtYyZM8xdM8w7M8x/O8wCpeZDVrWMs6XuJlXuHVIs5RKr3Gel7nDd7kLd7mHd7lPd7nAz7kIz7mEz7lMz7nC77kK77mm+KNUTJ9y3d8zw/8yE/8zC/8ym/8zh/8yV/8/e/nsh4bUI7ybEgFNqJi2eLP83+vkp1VpgobswlV2ZTNqMbmbEF1tmQrtmYbtmU7tqcGNdmBWuyYexTcTna2M7Wpwy7sSl12ox67U58GNGQP9mQv9mYf9mU/9ucADuSg3KPgGtnZwTTmEJrQlGYcSnNacBiH05IjaEVrjqQNbTmKo2nHMbTPPQqug50dy3F0pBPHcwIn0pkudKUb3enBSfTkZE7hVE7jdM7gTM7KPQrubDs7h3PpxXmczwVcyEVcTG8u4VIu43L60Jcr6Ed/ruQqrmZA7lFw19jZQAYxmCEM5Vqu43puYBjDGcGNjGQUoxnDWG5iHOOZwMTco+ButrNbmMRkbmUKU7mNaUxnBjOZxe3cwZ3cxWzmMJe7uYd7uS/3KLj77ewB5jGfBSzkQRaxmCU8xMMsZRmP8CiPsZzHeYIVrORJnso9Cu5pO3uGZ3mO53mBVbzIatawlnW8xMu8wqu8xnpe5w3e5C3e5p3cI6WUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWU/nP/ABcd4tI=
-  </data>
- </layer>
- <layer name="块层 2" width="100" height="100">
-  <data encoding="base64" compression="zlib">
-   eJzt0bkNgDAQRUG7SQL64G6ejTmEwU6QZqSX/Wg3JYB/6m4q2Rx31BlySmM0RXO0RGu05Xcb2urzuS8b6l3d+Xjrkg1t+AcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPBkB+XnFxM=
+   eJylkL0KgDAMhCvkedVJcfBv8O9Fu7Wbzp5gMIaWCg4fR3LluMZlxrgEORlTCEqKv/XARtgFFTJqQUNvn+HM455jetEiowM9GMBIj88dvMIJdQF/QsYKFjCDjd6+vTtIdC/tp7AqR/fc1ZxS+fev90ypDey/9gkpd9T7Pz31HVlPjFCpgg==
   </data>
  </layer>
 </map>
