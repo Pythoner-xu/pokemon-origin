@@ -11,6 +11,9 @@ function MainScene:ctor()
 	chooseButton.RADIO_BUTTON_IMAGES = {
 		on = "choose.png"
 	}
+	
+	local tmx = ccexp.TMXTiledMap:create('city1.tmx')
+	tmx:align(display.CENTER, display.cx, display.cy)
     
     mainLayer = display.newColorLayer(cc.c4b(255, 255, 255, 255))
     mainLayer:setContentSize(display.width, display.height)
@@ -37,6 +40,7 @@ function MainScene:ctor()
     	end)
     chooseGroup:align(display.CENTER, display.cx, display.cy)
     chooseGroup:addTo(self)
+    tmx:addTo(mainLayer)
 end
 
 function MainScene:onEnter()

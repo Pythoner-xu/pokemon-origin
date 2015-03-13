@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="21" height="9" tilewidth="48" tileheight="48" nextobjectid="1">
+ <tileset firstgid="1" name="city1" tilewidth="48" tileheight="48">
+  <image source="city1.png" width="1152" height="960"/>
+  <tile id="50">
+   <objectgroup draworder="index">
+    <object id="0" x="-16" y="-7" width="75" height="65"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="481" name="flower14bq" tilewidth="48" tileheight="48">
+  <image source="flower14bq.png" width="192" height="48"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="3" y="1" width="44" height="46"/>
+   </objectgroup>
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="485" name="BlockPalette_BPR_0_1" tilewidth="48" tileheight="48">
+  <image source="BlockPalette_BPR_0_1.png" width="384" height="4416"/>
+  <terraintypes>
+   <terrain name="新地形" tile="-1"/>
+  </terraintypes>
+  <tile id="26" terrain="0,0,0,0"/>
+  <tile id="27" terrain="0,0,0,0"/>
+  <tile id="28" terrain="0,0,0,0"/>
+  <tile id="29" terrain="0,0,0,0"/>
+ </tileset>
+ <layer name="ground" width="21" height="9">
+  <data encoding="base64" compression="zlib">
+   eJylkL0KgDAMhCvkedVJcfBv8O9Fu7Wbzp5gMIaWCg4fR3LluMZlxrgEORlTCEqKv/XARtgFFTJqQUNvn+HM455jetEiowM9GMBIj88dvMIJdQF/QsYKFjCDjd6+vTtIdC/tp7AqR/fc1ZxS+fev90ypDey/9gkpd9T7Pz31HVlPjFCpgg==
+  </data>
+ </layer>
+</map>
