@@ -2,7 +2,7 @@ Quick-Cocos2d-x C++ support ready.
 
 ------------------------------------------------
 
-LOAD LUA FILE: E:/pokemon-origin/src/main.lua
+LOAD LUA FILE: D:/Users/Administrator/Documents/cocos/pokemon-origin/src/main.lua
 
 ------------------------------------------------
 
@@ -24,7 +24,7 @@ LOAD LUA FILE: E:/pokemon-origin/src/main.lua
 
 [LUA-print] [INFO] # device.language              = cn
 
-[LUA-print] [INFO] # device.writablePath          = E:\pokemon-origin\
+[LUA-print] [INFO] # device.writablePath          = D:\Users\Administrator\Documents\cocos\pokemon-origin\
 
 [LUA-print] [INFO] # device.directorySeparator    = \
 
