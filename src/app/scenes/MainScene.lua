@@ -9,10 +9,6 @@ local MainScene = class("MainScene", function()
 end)
 
 function MainScene:ctor()
-    display.addSpriteFrames("sprites.plist", "sprites.png")
-	chooseButton.RADIO_BUTTON_IMAGES = {
-		on = "choose.png"
-	}
 	
 	tmx = ccexp.TMXTiledMap:create('city1.tmx')
 	tmx:align(display.CENTER, display.cx, display.cy)
@@ -25,20 +21,10 @@ end
 
 function MainScene:onEnter()
     local layer = tmx:getLayer('ground')
-    local frames = display.newFrames("flower%02d.png", 1, 4)
-    local animation = display.newAnimation(frames, 1 / 4) -- 0.5 秒播放 8 桢
-    display.setAnimationCache("flower", animation)
     local s = layer:getLayerSize()
     printf(s.width)
     printf(s.height)
-    for x = 0, s.width - 1, 1 do
-        for y = 0, s.height - 1, 1 do
-            printf(layer:getTileGIDAt(cc.p(x,y)))
-            if layer:getTileGIDAt(cc.p(x,y)) == 483 then
-                layer:getTileAt(cc.p(x,y)):playAnimationForever(display.getAnimationCache("flower"))
-            end
-        end
-    end
+    
 end
 
 function MainScene:onExit()
