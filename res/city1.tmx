@@ -1,59 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="21" height="9" tilewidth="48" tileheight="48" nextobjectid="1">
- <tileset firstgid="1" name="tiles" tilewidth="48" tileheight="48">
-  <image source="tiles.png" width="480" height="480"/>
-  <terraintypes>
-   <terrain name="grass" tile="-1"/>
-  </terraintypes>
-  <tile id="25" terrain="0,0,0,0"/>
-  <tile id="26" terrain="0,0,0,0"/>
-  <tile id="27" terrain="0,0,0,0"/>
-  <tile id="28" terrain="0,0,0,0"/>
-  <tile id="30">
-   <properties>
-    <property name="cc_vertexz" value="-1000"/>
-   </properties>
-  </tile>
-  <tile id="31">
-   <properties>
-    <property name="cc_vertexz" value="-1000"/>
-   </properties>
-  </tile>
-  <tile id="40">
-   <properties>
-    <property name="cc_vertexz" value="-1000"/>
-   </properties>
-  </tile>
-  <tile id="41">
-   <properties>
-    <property name="cc_vertexz" value="-1000"/>
-   </properties>
-  </tile>
-  <tile id="50">
-   <properties>
-    <property name="cc_vertexz" value="-1000"/>
-   </properties>
-  </tile>
-  <tile id="51">
-   <properties>
-    <property name="cc_vertexz" value="-1000"/>
-   </properties>
-  </tile>
+ <tileset firstgid="1" name="tiles2" tilewidth="48" tileheight="48">
+  <image source="tiles2.png" trans="ffffff" width="480" height="480"/>
  </tileset>
  <layer name="ground" width="21" height="9">
   <properties>
    <property name="cc_vertexz" value="-1000"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJx1kksOwCAIRDkHn/tfsy5q8vq0CxKFwWEcKiJyxazoFfUGc/vM+45GH3GJt+aCLd3ZN6i1eFt9f3nqyfjOV+Js8Vs7+8k1cWoqYW9/xH7ib3X/CTEjDuryvNRlX0bvMkcvM04vvTf0wTjPY8+s37tjz/54vauj2gMfBhRO
+   eJyTYmBgkAZiGSCWBWIpKIaJwdhSONShi8tiUU+smdjsx2emNB6aXHdKY1GPzUxc7sflFnxm4rNLloAZ9DCTUHjIYDETW3ghqyPWTFxm4IpnfGpgNADCoxQa
   </data>
  </layer>
  <layer name="layer2" width="21" height="9">
   <properties>
-   <property name="cc_vertexz" value="automatic"/>
+   <property name="cc_vertexz" value="1000"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgF2AAjEh6K5tMayAOxAhJNDaAJxFpINDWAMRCbINEgAACxPAH5
+   eJxjYBi5gAWIWQmoYQJiZiLVEmsGExZMqR2jgHgAAGLIADw=
   </data>
  </layer>
 </map>
