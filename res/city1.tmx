@@ -2,21 +2,25 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="21" height="9" tilewidth="48" tileheight="48" nextobjectid="1">
  <tileset firstgid="1" name="tiles2" tilewidth="48" tileheight="48">
   <image source="tiles2.png" trans="ffffff" width="480" height="480"/>
+  <terraintypes>
+   <terrain name="New Terrain" tile="-1"/>
+  </terraintypes>
+  <tile id="25" terrain="0,0,0,0"/>
+  <tile id="26" terrain="0,0,0,0"/>
+  <tile id="27" terrain="0,0,0,0"/>
+  <tile id="28" terrain="0,0,0,0"/>
  </tileset>
  <layer name="ground" width="21" height="9">
   <properties>
    <property name="cc_vertexz" value="-1000"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJyTYmBgkAZiGSCWBWIpKIaJwdhSONShi8tiUU+smdjsx2emNB6aXHdKY1GPzUxc7sflFnxm4rNLloAZ9DCTUHjIYDETW3ghqyPWTFxm4IpnfGpgNADCoxQa
+   eJyTYmBgkKIilkViy0D5slQwU5rK7hzF5GFppHjFxqcWpjTd4HMnALPwE2A=
   </data>
  </layer>
- <layer name="layer2" width="21" height="9">
-  <properties>
-   <property name="cc_vertexz" value="1000"/>
-  </properties>
+ <layer name="Tile Layer 2" width="21" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYBi5gAWIWQmoYQJiZiLVEmsGExZMqR2jgHgAAGLIADw=
+   eJxjYBgFhAAzFFOiFxumhpuoaeZIAQBDdAAu
   </data>
  </layer>
 </map>
