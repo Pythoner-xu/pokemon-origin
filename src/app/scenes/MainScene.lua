@@ -4,6 +4,7 @@ local mainLayer = nil;
 local uiLayer = nil;
 local chooseButton = {};
 local tmx = nil;
+local joystick = nil;
 local player =nil;
 local MainScene = class("MainScene", function()
     return display.newScene("MainScene")
@@ -17,6 +18,8 @@ function MainScene:ctor()
     mainLayer:setContentSize(display.width, display.height)
    	mainLayer:addTo(self)
    	mainLayer:addChild(tmx, 0, kTagTileMap)
+    uiLayer = display.newLayer()
+    uiLayer:addTo(self, 99, uiLayerTag)
 end
 
 function MainScene:onEnter()
@@ -28,11 +31,6 @@ function MainScene:onEnter()
     down_walk:setRestoreOriginalFrame(true)
     display.setAnimationCache("down_walk", down_walk)
     player = Player.new()
-    local images = {
-        normal = "btn.png",
-        pressed = "btn.png",
-        disabled = "btn.png"
-    }
     
 
     
@@ -41,22 +39,37 @@ function MainScene:onEnter()
     player:setAnchorPoint(cc.p(0,0))
     player:setPosition(layer:getTileAt(cc.p(10,10)):getPosition())
     tmx:reorderChild(player, 1);
-    cc.ui.UIPushButton.new(images, {scale9 = true})
-        :onButtonClicked(function(event)
-            printf('click')
-            player:doEvent("walk_down")
-        end)
-        :onButtonPressed(function(event)
-            printf('pressed')
-            
-            
-        end)
-        :onButtonRelease(function(event)
-            printf('released')
-            player:doEvent("normal")
-        end)
-        :align(display.LEFT_BOTTOM, 12, 12)
-        :addTo(self)
+
+    joystick = display.newSprite("btn.png")
+    joystick:align(display.CENTER, joystick:getContentSize().width/2+12, joystick:getContentSize().height/2+12 )
+    joystick:addTo(uiLayer)
+--           printf('click')
+--           player:doEvent("walk_down")
+    joystick:setTouchEnabled(true)
+    local bx = joystick:getPositionX()
+    local by = joystick:getPositionY()
+    local bw = joystick:getContentSize().width
+    local bh = joystick:getContentSize().height
+    joystick:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
+        
+        if event.name == "began" then
+            local dx = event.x - bx
+            local dy = event.y - by
+            if dx >= bw/4 and dy >= -bh/4 and dy <= bh/4 then
+                player:doEvent("walk_down")
+            end
+        end
+
+        if event.name == "moved" then
+           
+        end
+
+        if event.name == "ended" then
+           
+        end
+
+    end)
+       
 end
 
 function MainScene:onExit()
