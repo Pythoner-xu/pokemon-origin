@@ -23,10 +23,11 @@ function Player:addStateMachine()
         },
 
         callbacks = {
-            onenteridle = function ()
+            onenteridle = function (event)
+                printf('normal')
                 self:stopAllActions()
             end,
-            onenterwalk_down = function ()
+            onenterwalk_down = function (event)
                 local move = cc.MoveBy:create(0.5,cc.p(0, -48)) 
                 printf('walk_down')
                 self:moveBy(2,0,-48)
