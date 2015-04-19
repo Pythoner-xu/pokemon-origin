@@ -23,54 +23,69 @@ function MainScene:ctor()
 end
 
 function MainScene:onEnter()
-    display.addSpriteFrames("heroin.plist", "heroin.png")
     local layer = tmx:getLayer('ground')
-    local s = layer:getLayerSize()
-    local down_walk_frames = display.newFrames("Red1_%02d.png", 1, 4)
-    local down_walk = display.newAnimation(down_walk_frames, 0.5 / 4)
-    local up_walk_frames = display.newFrames("Red1_")
+    --加载文件
+    display.addSpriteFrames("heroin.plist", "heroin.png")
+    
+    --创建动画
+    local left_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 5, 4), 0.5/4)
+    local right_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 9, 4), 0.5/4)
+    local down_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 1, 4), 0.5 / 4)
+    local up_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 13, 4), 0.5/4)
     down_walk:setRestoreOriginalFrame(true)
-    display.setAnimationCache("down_walk", down_walk)
-    player = Player.new()
-    
+    up_walk:setRestoreOriginalFrame(true)
+    left_walk:setRestoreOriginalFrame(true)
+    right_walk:setRestoreOriginalFrame(true)
 
-    
+    --添加缓存
+    display.setAnimationCache("up_walk", up_walk)
+    display.setAnimationCache("down_walk", down_walk)
+    display.setAnimationCache("left_walk", left_walk)
+    display.setAnimationCache("right_walk", right_walk)
+
+    --添加主角
+    player = Player.new()
     tmx:addChild(player, table.getn(tmx:getChildren()), playerTag)
     player:retain()
     player:setAnchorPoint(cc.p(0,0))
     player:setPosition(layer:getTileAt(cc.p(10,10)):getPosition())
     tmx:reorderChild(player, 1);
 
+    --添加方向键
     joystick = display.newSprite("btn.png")
     joystick:align(display.CENTER, joystick:getContentSize().width/2+12, joystick:getContentSize().height/2+12 )
     joystick:addTo(uiLayer)
---           printf('click')
---           player:doEvent("walk_down")
     joystick:setTouchEnabled(true)
-    local bx = joystick:getPositionX()
-    local by = joystick:getPositionY()
-    local bw = joystick:getContentSize().width
-    local bh = joystick:getContentSize().height
+
+    --获得方向键位置和宽度
+    local joystick_x = joystick:getPositionX()
+    local joystick_y = joystick:getPositionY()
+    local joystick_w = joystick:getContentSize().width
+    local joystick_h = joystick:getContentSize().height
+
+    --获取方向键触摸事件 
     joystick:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
         printf("%s", event.name)
+        local distance_x = event.x - joystick_x
+        local distance_y = event.y - joystick_y
         if event.name == "began" then
-            local dx = event.x - bx
-            local dy = event.y - by
-            if dx >= bw/4 and dy >= -bh/4 and dy <= bh/4 then
-                player:doEvent("walk_down")
-            end
+            player:walk(distance_x, distance_y, joystick_w, joystick_h)
         end
 
         if event.name == "moved" then
-            local dx = math.abs(event.x - bx)
-            local dy = math.abs(event.y - by)
-            if dx > bw/2 or dy> bh/2 then
-                player:doEvent("normal")
+            if math.abs(distance_x) > joystick_w/2 or math.abs(distance_y)> joystick_h/2 then
+                if player:canDoEvent("normal") then
+                    player:doEvent("normal")
+                    return true
+                end
             end
+            player:walk(distance_x, distance_y, joystick_w, joystick_h)
         end
 
         if event.name == "ended" then
-           player:doEvent("normal")
+            if player:canDoEvent("normal") then
+                player:doEvent("normal")
+            end
         end
         return true
     end)
