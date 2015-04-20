@@ -1,33 +1,41 @@
-local Player = import("..classes.player")  
+local Player = import("..classes.player") 
+local scheduler = cc.Director:getInstance():getScheduler()
 local wakeUpLate = false;
 local mainLayer = nil;
 local uiLayer = nil;
+local player = nil;
 local chooseButton = {};
-local tmx = nil;
+local city1 = nil;
 local joystick = nil;
 local player =nil;
+local schedulemap = nil;
+local playerLayer = nil;
+local updateMap
+
 local MainScene = class("MainScene", function()
     return display.newScene("MainScene")
 end)
 
 function MainScene:ctor()
-
-	tmx = cc.TMXTiledMap:create('city1.tmx')
-	tmx:align(display.CENTER, display.cx, display.cy)
+	city1 = cc.TMXTiledMap:create('city1.tmx')
+	city1:align(display.CENTER, display.cx, display.cy)
     mainLayer = display.newColorLayer(cc.c4b(255, 255, 255, 255))
     mainLayer:setContentSize(display.width, display.height)
    	mainLayer:addTo(self)
-   	mainLayer:addChild(tmx, 0, kTagTileMap)
+   	mainLayer:addChild(city1)
     uiLayer = display.newLayer()
-    uiLayer:addTo(self, 99, uiKtaglayer)
+    uiLayer:addTo(self)
 end
 
 function MainScene:onEnter()
-    local layer = tmx:getLayer('ground')
+    local layer = city1:getLayer('ground')
+    playerLayer = city1:getLayer('player')
+
     --加载文件
     display.addSpriteFrames("heroin.plist", "heroin.png")
-    
+
     --创建动画
+    local flowers = display.newAnimation
     local left_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 5, 4), 0.5/4)
     local right_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 9, 4), 0.5/4)
     local down_walk = display.newAnimation(display.newFrames("Red1_%02d.png", 1, 4), 0.5 / 4)
@@ -43,13 +51,16 @@ function MainScene:onEnter()
     display.setAnimationCache("left_walk", left_walk)
     display.setAnimationCache("right_walk", right_walk)
 
+    --地图动画
+    schedulemap = scheduler:scheduleScriptFunc(updateMap, 0.15, false)
+
     --添加主角
     player = Player.new()
-    tmx:addChild(player, table.getn(tmx:getChildren()), playerTag)
+    city1:addChild(player, table.getn(city1:getChildren()))
     player:retain()
     player:setAnchorPoint(cc.p(0,0))
     player:setPosition(layer:getTileAt(cc.p(10,10)):getPosition())
-    tmx:reorderChild(player, 1);
+    city1:reorderChild(player, 1);
 
     --添加方向键
     joystick = display.newSprite("btn.png")
@@ -93,6 +104,27 @@ function MainScene:onEnter()
 end
 
 function MainScene:onExit()
+    scheduler:unscheduleScriptEntry(schedulemap)
+end
+
+function updateMap(dt)
+    --地圖動畫
+    local s = playerLayer:getLayerSize()
+    for x = 0, s.width - 1, 1 do
+        for y = 0, s.height - 1, 1 do        
+            if playerLayer:getTileGIDAt(cc.p(x, y)) == 1 then           
+                playerLayer:setTileGID(2, cc.p(x, y))
+            elseif playerLayer:getTileGIDAt(cc.p(x, y)) == 2 then        
+                playerLayer:setTileGID(3, cc.p(x, y))
+            elseif playerLayer:getTileGIDAt(cc.p(x, y)) == 3 then          
+                playerLayer:setTileGID(4, cc.p(x, y))
+            elseif playerLayer:getTileGIDAt(cc.p(x, y)) == 4 then          
+                playerLayer:setTileGID(5, cc.p(x, y))
+            elseif playerLayer:getTileGIDAt(cc.p(x, y)) == 5 then       
+                playerLayer:setTileGID(1, cc.p(x, y))
+            end
+        end
+    end
 end
 
 return MainScene
